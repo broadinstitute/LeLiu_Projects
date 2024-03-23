@@ -1,0 +1,80 @@
+---
+title: "DataExploration_CellProfiler"
+output: html_document
+date: "2024-02-13"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(tidyverse)
+library(dplyr)
+
+```
+
+
+```{r}
+GCO_df <- read.csv("./MyExpt_gco.csv")
+SCO_df <- read.csv("./MyExpt_sco.csv")
+
+GCO_df <- GCO_df %>% 
+  group_by(Metadata_FileLocation) %>% 
+  mutate(GCO_stomata_desity = max(ObjectNumber))
+```
+
+```{r}
+# Identify columns that start with "AreaShape"
+area_columns <- grep("^AreaShape", names(GCO_df))
+
+# Add "GCO" to the identified columns
+names(GCO_df)[area_columns] <- paste0("GCO_", names(GCO_df)[area_columns])
+
+# Print the modified dataframe
+print(GCO_df)
+```
+
+```{r}
+merged_df <- left_join(GCO_df, SCO_df, by = c("Metadata_FileLocation" , "Neighbors_FirstClosestObjectNumber_sco_Expanded" = "ObjectNumber"))
+
+
+new_sco_columns <- setdiff(names(SCO_df), names(GCO_df))
+
+# Rename only the new columns from SCO_df with "sco1_" prefix
+names(merged_df)[which(names(merged_df) %in% new_sco_columns)] <- paste0("sco1_", names(merged_df)[which(names(merged_df) %in% new_sco_columns)])
+
+# Print the merged dataframe
+print(merged_df)
+
+colnames(merged_df)
+```
+
+
+```{r}
+merged_df.1 <- left_join(merged_df, SCO_df, by = c("Metadata_FileLocation", "Neighbors_SecondClosestObjectNumber_sco_Expanded" = "ObjectNumber"))
+                   
+# Rename only the new columns from SCO_df with "sco1_" prefix
+names(merged_df.1)[which(names(merged_df.1) %in% new_sco_columns)] <- paste0("sco2_", names(merged_df.1)[which(names(merged_df.1) %in% new_sco_columns)])           
+
+write.csv(merged_df.1, "./GC_SC_merge.csv")
+```
+```{r}
+###Only contain the GC with 2 SCs identified 
+merged_df.2 <- merged_df.1 %>%
+  filter(Neighbors_NumberOfNeighbors_sco_Expanded == "2")
+
+
+if (any(is.na(merged_df.1))) {
+  print("There are NA values in the dataframe.")
+} else {
+  print("There are no NA values in the dataframe.")
+}
+```
+
+
+`
+
+
+
