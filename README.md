@@ -13,6 +13,6 @@
 ![image](https://github.com/broadinstitute/LeLiu_Projects/assets/73537116/d9f69482-23bd-4242-9d18-0e055350c5fc)
 
 
-### Project 2: 3D segment C.elegan with Paula
+### Project 3: 3D segment C.elegan with Paula
 
-### Project3: Select a subset of features and run Harmony and/or Scanorama for the whole JUMP dataset (CRISPR, ORF, COMPOUND) with Suganya
+### Project4: Select a subset of features and run Harmony and/or Scanorama for the whole JUMP dataset (CRISPR, ORF, COMPOUND) with Suganya
