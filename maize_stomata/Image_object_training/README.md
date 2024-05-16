@@ -16,3 +16,4 @@ I tried the build CNN from cratch with three layers: limited image numbers made 
 
 I fine-tued pre-trained model ResNet and VGG with the imageNet weights. The VGG had the best performance as accuracy is around 0.8
 Hyperparameters are not tuned, but will do in the next step.
+![image](https://github.com/broadinstitute/LeLiu_Projects/assets/73537116/5b21aa6f-692e-4026-b631-fe37ebeb0ac7)
