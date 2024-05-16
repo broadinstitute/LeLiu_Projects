@@ -11,9 +11,10 @@ I tried o use two methods to train raw masks/images to traing the classify genot
 
 ### 2. CNN model using keras and Tensorflow
 
-I tried the build CNN from cratch with three layers: limited image numbers made the model overfitting and predictio accuracy was low. Droupout and data augumentation techniquewas were used, the overfitting was a litte bit improved, but the accuracy is still low (0.4) 
+I tried the build CNN from cratch with three layers: limited image numbers made the model overfitting and predictio accuracy was low. Droupout and data augumentation techniquewas were used, the overfitting was a litte bit improved, but the accuracy is still low (0.4).
 
-I fine-tued pre-trained model ResNet and VGG with the imageNet weights. The VGG had the best performance as accuracy is around 0.8
+I fine-tued pre-trained model ResNet and VGG with the imageNet weights. The VGG had the best performance as accuracy is around 0.8.
+
 Hyperparameters are not tuned, but will do in the next step.
 ![image](https://github.com/broadinstitute/LeLiu_Projects/assets/73537116/5b21aa6f-692e-4026-b631-fe37ebeb0ac7)
 ![image](https://github.com/broadinstitute/LeLiu_Projects/assets/73537116/c00d9b5e-1c0b-4a72-834f-25a08919445a)
