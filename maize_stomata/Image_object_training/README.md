@@ -6,8 +6,7 @@ extracted features. The accuracy is about 0.8. I want to understand if the accur
 I tried o use two methods to train raw masks/images to traing the classify genotyps.
 
 ### 1. PIXIMI
-1. I developed the pipelone to crop the images into the objects and annotation files in Piximi supported 
-Jason file.
+1. I developed the pipelone to crop the images into the objects and annotation files in Piximi supported Jason file with the help of Nodar.
 2. Start to train the objects in Beta.Piximi. Training in larger datasets might need more stable version.
 
 ### 2. CNN model using keras and Tensorflow
